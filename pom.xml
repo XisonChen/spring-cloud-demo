@@ -7,7 +7,7 @@
         <module>api</module>
         <module>provider-user</module>
         <module>consumer-user</module>
-        <module>commmon</module>
+        <module>common</module>
         <module>eureka</module>
     </modules>
 
