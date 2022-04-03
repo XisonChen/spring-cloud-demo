@@ -5,26 +5,24 @@
  * You shall not disclose such Confidential Information and shall use it only
  * in accordance with the terms of the license agreement you entered into with GuaHao.com.
  */
-package com.xison;
+package com.xison.eureka7072;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
- * 启动
+ * TODO
  *
  * @author chenjj
  * @version V1.0
- * @since 2022-04-01 18:30
+ * @since 2022-04-03 18:38
  */
 @SpringBootApplication
-@EnableEurekaClient
-@EnableDiscoveryClient
-public class ProviderUserApplication {
+@EnableEurekaServer
+public class EurekaServer7072Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProviderUserApplication.class);
+        SpringApplication.run(EurekaServer7072Application.class, args);
     }
 }

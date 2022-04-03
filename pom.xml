@@ -8,7 +8,9 @@
         <module>provider-user</module>
         <module>consumer-user</module>
         <module>common</module>
-        <module>eureka</module>
+        <module>eureka-7071</module>
+        <module>eureka-7072</module>
+        <module>eureka-7073</module>
     </modules>
 
     <groupId>com.xison</groupId>

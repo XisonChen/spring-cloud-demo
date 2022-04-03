@@ -19,6 +19,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +42,8 @@ public class UserController {
 
     @Resource
     private UserManager userManager;
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @ResponseBody
     @PostMapping("/add")
@@ -69,5 +73,28 @@ public class UserController {
     public Result<UserVO> getbyid(@RequestBody UserReq req) {
         UserDO user = userManager.getById(req.getId());
         return Results.success(new UserVO().setId(user.getId()).setName(user.getName()));
+    }
+
+    /**
+     * 用来获取一些注册进来的微服务的消息
+     * @return
+     */
+    @GetMapping("/discovery")
+    public Object discovery(){
+        //获取微服务列表的清单
+        List<String> services = discoveryClient.getServices();
+        //输出微服务的清单
+        System.out.println("discovery=>:"+services);
+        //得到一个具体的服务的信息,通过具体的微服务id，applicationName
+        List<ServiceInstance> instances = discoveryClient.getInstances("SPRINGCLOUD-PROVIDER-DEPT");
+        for (ServiceInstance instance : instances) {
+            System.out.println(
+                instance.getHost()+"\t"+
+                    instance.getPort()+"\t"+
+                    instance.getUri()+"\t"+
+                    instance.getServiceId()
+            );
+        }
+        return this.discoveryClient;
     }
 }
