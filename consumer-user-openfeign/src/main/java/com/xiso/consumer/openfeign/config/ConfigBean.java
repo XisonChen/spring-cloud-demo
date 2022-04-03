@@ -5,7 +5,9 @@
  * You shall not disclose such Confidential Information and shall use it only
  * in accordance with the terms of the license agreement you entered into with GuaHao.com.
  */
-package com.xison.user.consumer.config;
+package com.xiso.consumer.openfeign.config;
+
+import com.xison.common.service.UserService;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -17,14 +19,14 @@ import org.springframework.web.client.RestTemplate;
  *
  * @author chenjj
  * @version V1.0
- * @since 2022-04-02 10:57
+ * @since 2022-04-03 21:27
  */
 @Configuration
 public class ConfigBean {
-
     @Bean
-    @LoadBalanced // Ribbon负载均衡
-    public RestTemplate getRestTemplate() {
+    @LoadBalanced
+    public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
 }

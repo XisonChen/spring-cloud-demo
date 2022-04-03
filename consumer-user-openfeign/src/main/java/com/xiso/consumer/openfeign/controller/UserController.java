@@ -5,16 +5,18 @@
  * You shall not disclose such Confidential Information and shall use it only
  * in accordance with the terms of the license agreement you entered into with GuaHao.com.
  */
-package com.xison.user.consumer.controller;
+package com.xiso.consumer.openfeign.controller;
 
 import com.xison.common.Result;
 import com.xison.common.UserReq;
 import com.xison.common.UserVO;
+import com.xison.common.service.UserService;
 
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,41 +30,38 @@ import org.springframework.web.client.RestTemplate;
  *
  * @author chenjj
  * @version V1.0
- * @since 2022-04-02 10:58
+ * @since 2022-04-03 21:25
  */
 @RestController
-@RequestMapping("/userconsumer/user")
-public class UserConsumerController {
+@RequestMapping("/userconsumer/openfeign")
+public class UserController {
 
     @Resource
     private RestTemplate restTemplate;
-
-//    private static final String REST_URL_PREFIX = "http://127.0.0.1:8081/userprovider/user";
-    // 改成eureka上的服务名称
-    // Ribbon 和 Eureka 整合以后，客户端可以直接调用，不用关心ip地址和端口号
-    private static final String REST_URL_PREFIX = "http://PROVIDER-USER/userprovider/user";
+    @Autowired
+    private UserService userService;
 
     @ResponseBody
     @PostMapping("/add")
     public Result<Boolean> add(@RequestBody UserReq req) {
-        return restTemplate.postForObject(REST_URL_PREFIX + "/add", req, Result.class);
+        return this.userService.add(req);
     }
 
     @ResponseBody
     @PostMapping("/modify")
     public Result<Boolean> modify(@RequestBody UserReq req) {
-        return restTemplate.postForObject(REST_URL_PREFIX + "/modify", req, Result.class);
+        return this.userService.modify(req);
     }
 
     @ResponseBody
     @GetMapping("/userlist")
     public Result<List<UserVO>> userList() {
-        return restTemplate.getForObject(REST_URL_PREFIX + "/userlist", Result.class);
+        return this.userService.userList();
     }
 
     @ResponseBody
     @GetMapping("/getbyid")
     public Result<UserVO> getbyid(@RequestBody UserReq req) {
-        return restTemplate.getForObject(REST_URL_PREFIX + "/getbyid", Result.class);
+        return this.userService.getbyid(req);
     }
 }

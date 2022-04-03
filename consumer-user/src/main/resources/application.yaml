@@ -1,0 +1,10 @@
+server:
+    port: 8082
+
+#EurekaClient配置
+eureka:
+    client:
+        register-with-eureka: false #不向Eureka注册自己
+        service-url:
+            # 指定服务注册中心的地址
+            defaultZone: http://eureka7071.com:7071/eureka/,http://eureka7072.com:7072/eureka/,http://eureka7073.com:7073/eureka/

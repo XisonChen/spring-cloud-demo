@@ -5,13 +5,15 @@
     <packaging>pom</packaging>
     <modules>
         <module>api</module>
-        <module>provider-user</module>
+        <module>provider-user-8070</module>
+        <module>provider-user-8071</module>
         <module>consumer-user</module>
         <module>common</module>
         <module>eureka-7071</module>
         <module>eureka-7072</module>
         <module>eureka-7073</module>
         <module>consul-8501</module>
+        <module>consumer-user-openfeign</module>
     </modules>
 
     <groupId>com.xison</groupId>
