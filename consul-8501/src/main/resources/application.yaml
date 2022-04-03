@@ -1,0 +1,11 @@
+server:
+    port: 8501
+spring:
+    application:
+        name: CONSULCLIENT #指定服务名称
+    cloud:
+        consul:
+            host: localhost    #consul server服务注册地址 不需要指定端口号
+            discovery:
+                #指定注册当前服务的服务名称 默认值为${spring.application.name}
+                service-name: consul-8501

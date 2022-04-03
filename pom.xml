@@ -11,6 +11,7 @@
         <module>eureka-7071</module>
         <module>eureka-7072</module>
         <module>eureka-7073</module>
+        <module>consul-8501</module>
     </modules>
 
     <groupId>com.xison</groupId>
