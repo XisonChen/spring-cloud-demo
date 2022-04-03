@@ -14,6 +14,8 @@
         <module>eureka-7073</module>
         <module>consul-8501</module>
         <module>consumer-user-openfeign</module>
+        <module>provider-user-hystrix-8072</module>
+        <module>consumer-user-hystrix-dashboard</module>
     </modules>
 
     <groupId>com.xison</groupId>

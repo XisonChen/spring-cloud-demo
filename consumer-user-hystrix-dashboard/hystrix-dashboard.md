@@ -1,0 +1,2 @@
+# Hystrix Dashboard 流监控
+Hystrix Dashboard的一个主要优点是它收集了关于每个HystrixCommand的一组度量。Hystrix仪表板以高效的方式显示每个断路器的运行状况
