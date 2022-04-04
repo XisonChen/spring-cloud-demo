@@ -16,6 +16,7 @@
         <module>consumer-user-openfeign</module>
         <module>provider-user-hystrix-8072</module>
         <module>consumer-user-hystrix-dashboard</module>
+        <module>gateway-7979</module>
     </modules>
 
     <groupId>com.xison</groupId>

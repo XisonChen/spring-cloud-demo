@@ -13,5 +13,15 @@ eureka:
         instance-id: zuul9527.com
         prefer-ip-address: true #显示ip
 info:
-    app.name: # 项目名称
-    company.name: zuul-9572
+    app.name: zuul-9572
+    company.name: com.xison
+    
+#zuul路由配置
+zuul:
+    routes:
+        myuser.serverId: provider-user # eureka注册中心的服务提供方路由名称
+        # 将eureka注册中心的服务提供方路由名称 改为自定义路由名称。
+        myuser.path: /myuser/** # http://www.myzuul.com:9527/provider-user/userprovider/user/userlist和http://www.myzuul.com:9527/myuser/userlist两个都能访问
+        #ignored-services: provider-user #不能在使用http://www.myzuul.com:9527/provider-user/这个路径访问
+        #ignored-services: "*"
+        prefix: /userprovider/user # 设置公共的前缀
