@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>api</module>
         <module>provider-user-8070</module>
         <module>provider-user-8071</module>
         <module>consumer-user</module>
@@ -17,6 +16,8 @@
         <module>provider-user-hystrix-8072</module>
         <module>consumer-user-hystrix-dashboard</module>
         <module>gateway-7979</module>
+        <module>config-client-3355</module>
+        <module>config-server-3345</module>
     </modules>
 
     <groupId>com.xison</groupId>

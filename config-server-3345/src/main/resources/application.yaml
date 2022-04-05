@@ -1,0 +1,26 @@
+server:
+    port: 3344
+spring:
+    application:
+        name: config-server-3344
+    # 连接码云远程仓库
+    cloud:
+        config:
+            server:
+                git:
+                    # 注意是https的而不是ssh
+                    uri: https://github.com/*.git
+                    # 通过 config-server可以连接到git，访问其中的资源以及配置~  Github现在master改为main
+                    default-label: main
+                    basedir: *
+                    username: *
+                    password: *
+                    force-pull: true
+#配置注册中心
+#Eureka配置,服务注册到哪里
+eureka:
+    client:
+        service-url:
+            defaultZone: http://eureka7071.com:7071/eureka/,http://eureka7072.com:7072/eureka/,http://eureka7073.com:7073/eureka/
+    instance:
+        instance-id: config-server-3344  #修改Eureka默认描述信息
